@@ -66,7 +66,8 @@ WHERE ST_NumInteriorRings(geom) = 0;
 -- Hint: Use the nyc_streets table
 
 -- TODO: Write your query below
-
+SELECT SUM(ST_Length(geom)) / 1609.34 AS total_length_miles
+FROM nyc_streets; 
 
 
 
@@ -82,7 +83,9 @@ WHERE ST_NumInteriorRings(geom) = 0;
 -- Hint: Filter rows where name = '5th Ave'
 
 -- TODO: Write your query below
-
+SELECT SUM(ST_Length(geom)) AS fifth_ave_length
+FROM nyc_streets
+WHERE name = '5th Ave';
 
 
 
@@ -97,7 +100,9 @@ WHERE ST_NumInteriorRings(geom) = 0;
 -- Hint: Filter rows where name = 'Soho'
 
 -- TODO: Write your query below
-
+SELECT ST_AsGeoJSON(geom) AS soho_geojson
+FROM nyc_neighborhoods
+WHERE name = 'Soho';
 
 
 
